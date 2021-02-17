@@ -12,6 +12,7 @@
     "prettier-fix": "prettier --write ./src"
   },
   "dependencies": {
+    "@react-native-firebase/app": "^10.8.0",
     "@reduxjs/toolkit": "^1.5.0",
     "expo": "~40.0.0",
     "expo-splash-screen": "~0.8.0",
