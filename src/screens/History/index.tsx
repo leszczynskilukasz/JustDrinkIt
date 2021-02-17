@@ -1,12 +1,12 @@
 import React from 'react';
 import { Text, View } from 'react-native';
 
-const Main: React.FC = () => {
+const History: React.FC = () => {
   return (
     <View>
-      <Text>Hello World! :D</Text>
+      <Text>Hello History Screen! :D</Text>
     </View>
   );
 };
 
-export default Main;
+export default History;
