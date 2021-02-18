@@ -1,5 +1,6 @@
 import Constants from 'expo-constants';
 import * as Notifications from 'expo-notifications';
+import moment from 'moment';
 import { Platform } from 'react-native';
 
 export const registerForPushNotificationsAsync = async (): Promise<string | undefined> => {
@@ -32,13 +33,30 @@ export const registerForPushNotificationsAsync = async (): Promise<string | unde
   return token;
 };
 
-export const schedulePushNotification = async (): Promise<void> => {
+export const pushNotification = async (): Promise<void> => {
   await Notifications.scheduleNotificationAsync({
-    identifier: 'default',
     content: {
       title: 'Drink Water Reminder! 💦',
       body: 'You need some drink water',
+      data: {
+        date: moment().add(2, 'h').format('DD MM YYYY, hh:mm:ss a'),
+      },
     },
-    trigger: { seconds: 5 },
+    trigger: { seconds: 10 },
   });
+};
+
+export const getNotifications = async (): Promise<string[]> => {
+  const reminders: string[] = [];
+  await Notifications.getAllScheduledNotificationsAsync().then((response) => {
+    if (response) {
+      Promise.all(
+        response.map((reminder) => {
+          const date: string = reminder.content?.data?.date as string;
+          reminders.push(date);
+        }),
+      );
+    }
+  });
+  return reminders;
 };

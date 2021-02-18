@@ -39,7 +39,9 @@ module.exports = {
       'error',
       'always'
     ],
-    'prettier/prettier': 'error',
+    'prettier/prettier': ["error", {
+      'endOfLine': 'auto'
+    }]
   },
   settings: {
     react: {

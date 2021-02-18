@@ -6,22 +6,17 @@ import {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     alignItems: 'center',
   },
   headerText: {
-    fontSize: wp('17%'),
-    fontWeight: 'bold',
+    fontSize: 30,
     textAlign: 'center',
-    marginTop: 50,
-    marginBottom: hp('10%'),
+    marginVertical: 30,
     color: '#1E90FF',
   },
-  textError: {
-    color: '#FF0000',
-    marginTop: 10,
-    fontSize: 15,
-    textAlign: 'center',
+  card: {
+    width: wp('70%'),
+    height: hp('10%') < 100 ? 100 : hp('100%'),
   },
 });
 

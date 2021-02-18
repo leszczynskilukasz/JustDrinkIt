@@ -23,7 +23,7 @@ const Login: React.FC = () => {
 
   return (
     <View style={styles.container}>
-      <Text>Hello Login Screen! :D</Text>
+      <Text style={styles.headerText}>JustDrinkIt</Text>
       {!!textError && <Text style={styles.textError}>{textError}</Text>}
       <TextInput
         onChangeText={(text) => setEmail(text)}

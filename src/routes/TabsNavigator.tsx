@@ -2,7 +2,7 @@ import React from 'react';
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 import HomeScreen from '../screens/Home/index';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-import HistoryScreen from '../screens/History/index';
+import ScheduleScreen from '../screens/Schedule/index';
 
 const Tab = createMaterialBottomTabNavigator();
 
@@ -25,7 +25,7 @@ const TabsNavigator: React.FC = () => {
           ),
         }}
         name="History"
-        component={HistoryScreen}
+        component={ScheduleScreen}
       />
     </Tab.Navigator>
   );
