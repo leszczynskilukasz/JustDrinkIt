@@ -7,12 +7,13 @@ import {
   registerForPushNotificationsAsync,
   pushNotification,
   getNotifications,
-} from '../../utils/Notifications';
+} from '../../utils/notifications';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import { useDispatch } from 'react-redux';
 import { updateListNotifications } from '../../redux/notificationsSlice';
 import styles from './styles';
 import { widthPercentageToDP as wp } from 'react-native-responsive-screen';
+import names from '../../utils/names';
 
 Notifications.setNotificationHandler({
   handleNotification: async () => ({
@@ -38,12 +39,14 @@ const Home: React.FC = () => {
 
   return (
     <View>
-      <Text style={styles.headerText}>Drink Water Reminder</Text>
-      <Text style={styles.infoText}>Click on the glass to set a reminder - 2h</Text>
+      <Text style={styles.headerText}>{names.HomeScreen['Drink Water Reminder']}</Text>
+      <Text style={styles.infoText}>
+        {names.HomeScreen['Click on the glass to set a reminder - 2h']}
+      </Text>
       <TouchableOpacity onPress={scheduleNotification} style={styles.btn_setNotification}>
         <MaterialCommunityIcons color="#67B4FC" name="cup" size={wp('90%')} />
       </TouchableOpacity>
-      <Button text="Sign Out" onPress={() => auth().signOut()} />
+      <Button text={names.HomeScreen.SignOut} onPress={() => auth().signOut()} />
     </View>
   );
 };

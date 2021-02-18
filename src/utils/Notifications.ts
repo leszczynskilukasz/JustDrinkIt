@@ -42,7 +42,7 @@ export const pushNotification = async (): Promise<void> => {
         date: moment().add(2, 'h').format('DD MM YYYY, hh:mm:ss a'),
       },
     },
-    trigger: { seconds: 10 },
+    trigger: { seconds: 7200 },
   });
 };
 

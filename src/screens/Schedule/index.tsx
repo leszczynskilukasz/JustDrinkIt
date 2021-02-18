@@ -1,10 +1,11 @@
 import React, { useEffect } from 'react';
 import { ScrollView } from 'react-native';
-import { getNotifications } from '../../utils/Notifications';
+import { getNotifications } from '../../utils/notifications';
 import { useSelector, useDispatch } from 'react-redux';
 import styles from './styles';
 import { notificationsSelector, updateListNotifications } from '../../redux/notificationsSlice';
 import { Text, Card, CardItem, Body } from 'native-base';
+import names from '../../utils/names';
 
 const Schedule: React.FC = () => {
   const notificationsList = useSelector(notificationsSelector);
@@ -21,11 +22,11 @@ const Schedule: React.FC = () => {
 
   return (
     <ScrollView contentContainerStyle={styles.container}>
-      <Text style={styles.headerText}>Schedule Notifications</Text>
+      <Text style={styles.headerText}>{names.ScheduleScreen['Schedule Notifications']}</Text>
       {notificationsList.map((notification, index) => (
         <Card key={index} style={styles.card}>
           <CardItem header>
-            <Text>Drink Water Reminder! 💦</Text>
+            <Text>{names.ScheduleScreen['Drink Water Reminder!']} 💦</Text>
           </CardItem>
           <CardItem>
             <Body>

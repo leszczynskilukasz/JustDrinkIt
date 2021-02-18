@@ -3,6 +3,7 @@ import { createMaterialBottomTabNavigator } from '@react-navigation/material-bot
 import HomeScreen from '../screens/Home/index';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import ScheduleScreen from '../screens/Schedule/index';
+import names from '../utils/names';
 
 const Tab = createMaterialBottomTabNavigator();
 
@@ -11,7 +12,7 @@ const TabsNavigator: React.FC = () => {
     <Tab.Navigator initialRouteName="Home" shifting={true}>
       <Tab.Screen
         options={{
-          tabBarLabel: 'Home',
+          tabBarLabel: names.TabsNavigator.Home,
           tabBarIcon: ({ color }) => <MaterialCommunityIcons name="home" color={color} size={26} />,
         }}
         name="Home"
@@ -19,7 +20,7 @@ const TabsNavigator: React.FC = () => {
       />
       <Tab.Screen
         options={{
-          tabBarLabel: 'History',
+          tabBarLabel: names.TabsNavigator.History,
           tabBarIcon: ({ color }) => (
             <MaterialCommunityIcons name="history" color={color} size={26} />
           ),

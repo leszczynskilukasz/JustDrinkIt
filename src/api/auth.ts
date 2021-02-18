@@ -1,5 +1,6 @@
 import auth from '@react-native-firebase/auth';
 import { loginErrors } from './consts/errorCodes';
+import names from '../utils/names';
 
 export const loginUser = async (
   email: string,
@@ -8,7 +9,7 @@ export const loginUser = async (
   setLoading: (loading: boolean) => void,
 ): Promise<void> => {
   if (email.trim() === '' || password.trim() === '') {
-    setTextError('Please enter email and password');
+    setTextError(names.Auth['Please enter email and password']);
     setLoading(false);
   } else {
     await auth()
@@ -20,15 +21,15 @@ export const loginUser = async (
           case loginErrors.INVALID_EMAIL:
           case loginErrors.WRONG_PASSWORD:
           case loginErrors.USER_NOT_FOUND: {
-            errorMessage = 'Incorrect email or password';
+            errorMessage = names.Auth['Incorrect email or password'];
             break;
           }
           case loginErrors.USER_DISABLED: {
-            errorMessage = 'Account has been blocked';
+            errorMessage = names.Auth['Account has been blocked'];
             break;
           }
           default:
-            errorMessage = 'Something went wrong. Please try again later';
+            errorMessage = names.Auth['Something went wrong. Please try again later'];
         }
         setTextError(errorMessage);
       });

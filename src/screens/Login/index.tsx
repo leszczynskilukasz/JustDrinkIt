@@ -4,6 +4,7 @@ import Button from '../../components/Button/index';
 import TextInput from '../../components/TextInput/index';
 import styles from './styles';
 import { loginUser } from '../../api/auth';
+import names from '../../utils/names';
 
 const Login: React.FC = () => {
   const [email, setEmail] = useState<string>('');
@@ -29,16 +30,16 @@ const Login: React.FC = () => {
         onChangeText={(text) => setEmail(text)}
         keyboardType="email-address"
         value={email}
-        placeholder="E-mail"
+        placeholder={names.LoginScreen['E-mail']}
       />
       <TextInput
         onChangeText={(text) => setPassword(text)}
         keyboardType="default"
         secureTextEntry
         value={password}
-        placeholder="Password"
+        placeholder={names.LoginScreen.Password}
       />
-      <Button text="Login" loading={loading} onPress={login} />
+      <Button text={names.LoginScreen.Login} loading={loading} onPress={login} />
     </View>
   );
 };
